@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: org.apache.commons.lang3.StringUtilsValidationTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+org.apache.commons.lang3.StringUtilsValidationTest.testIsBlank_WithMock()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIsBlank_WithMock(StringUtilsValidationTest.java:24)
+
+org.apache.commons.lang3.StringUtilsValidationTest.testIsEmpty_WithMock()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIsEmpty_WithMock(StringUtilsValidationTest.java:42)
+
+org.apache.commons.lang3.StringUtilsValidationTest.testContains_WithMock()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.toString()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContains_WithMock(StringUtilsValidationTest.java:60)
+
+org.apache.commons.lang3.StringUtilsValidationTest.testIndexOf_BehaviorOnException()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIndexOf_BehaviorOnException(StringUtilsValidationTest.java:73)
+
+org.apache.commons.lang3.StringUtilsValidationTest.testContainsAny_Interaction()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContainsAny_Interaction(StringUtilsValidationTest.java:88)
+
+org.apache.commons.lang3.StringUtilsValidationTest.testContainsNone_FullScan()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.mockSeq" is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContainsNone_FullScan(StringUtilsValidationTest.java:104)
+

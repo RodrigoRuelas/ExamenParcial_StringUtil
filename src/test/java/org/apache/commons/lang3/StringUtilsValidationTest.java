@@ -1,5 +1,6 @@
 package org.apache.commons.lang3;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -15,6 +16,16 @@ public class StringUtilsValidationTest {
     @Mock
     CharSequence mockSeq; // Creamos un mock de la interfaz CharSequence
 
+    // ====================================================================
+    // CONFIGURACIÓN INICIAL
+    // ====================================================================
+    @BeforeEach
+    public void setUp() {
+        // Esto le dice a Mockito que cree un mock fresco y nuevo 
+        // ANTES de ejecutar cada uno de los @Test. ¡Soluciona el error null!
+        mockSeq = mock(CharSequence.class);
+    }
+    
     // ====================================================================
     // ÁREA DE PRUEBAS PARA EL MÉTODO: isBlank()
     // ====================================================================

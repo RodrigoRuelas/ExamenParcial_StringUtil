@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="org.apache.commons.lang3.StringUtilsManipulationTest" time="0.026" errors="0" skipped="0">
+<testsuite tests="6" failures="6" name="org.apache.commons.lang3.StringUtilsValidationTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -58,13 +58,34 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testCapitalize_NormalString" time="0.013"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testCapitalize_NullOrEmptyString" time="0"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testAppendIfMissing_SuffixMissing" time="0.004"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testAppendIfMissing_SuffixAlreadyPresent" time="0.001"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testDeleteWhitespace_WithSpaces" time="0"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testDeleteWhitespace_Null" time="0.001"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testSwapCase_MixedCharacters" time="0"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testTruncate_NormalBehavior" time="0.005"/>
-  <testcase classname="org.apache.commons.lang3.StringUtilsManipulationTest" name="org.apache.commons.lang3.StringUtilsManipulationTest.testTruncate_NegativeMaxWidthThrowsException" time="0.002"/>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testIsBlank_WithMock" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIsBlank_WithMock(StringUtilsValidationTest.java:24)
+</failure>
+  </testcase>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testIsEmpty_WithMock" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIsEmpty_WithMock(StringUtilsValidationTest.java:42)
+</failure>
+  </testcase>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testContains_WithMock" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.toString()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.toString()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContains_WithMock(StringUtilsValidationTest.java:60)
+</failure>
+  </testcase>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testIndexOf_BehaviorOnException" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testIndexOf_BehaviorOnException(StringUtilsValidationTest.java:73)
+</failure>
+  </testcase>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testContainsAny_Interaction" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContainsAny_Interaction(StringUtilsValidationTest.java:88)
+</failure>
+  </testcase>
+  <testcase classname="org.apache.commons.lang3.StringUtilsValidationTest" name="org.apache.commons.lang3.StringUtilsValidationTest.testContainsNone_FullScan" time="0">
+    <failure message="Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;java.lang.CharSequence.length()&quot; because &quot;this.mockSeq&quot; is null
+	at org.apache.commons.lang3.StringUtilsValidationTest.testContainsNone_FullScan(StringUtilsValidationTest.java:104)
+</failure>
+  </testcase>
 </testsuite>
