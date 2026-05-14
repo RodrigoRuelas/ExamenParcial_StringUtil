@@ -1,37 +1,19 @@
 package org.apache.commons.lang3;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class StringUtilsValidationTest {
 
-    @Mock
-    CharSequence mockSeq; // Creamos un mock de la interfaz CharSequence
-
-    // ====================================================================
-    // CONFIGURACIÓN INICIAL
-    // ====================================================================
-    @BeforeEach
-    public void setUp() {
-        // Esto le dice a Mockito que cree un mock fresco y nuevo 
-        // ANTES de ejecutar cada uno de los @Test. ¡Soluciona el error null!
-        mockSeq = mock(CharSequence.class);
-    }
-    
     // ====================================================================
     // ÁREA DE PRUEBAS PARA EL MÉTODO: isBlank()
     // ====================================================================
     @Test
     public void testIsBlank_WithMock() {
-        // Configuramos el mock para que parezca una cadena con espacios
+        CharSequence mockSeq = mock(CharSequence.class);
+        
         when(mockSeq.length()).thenReturn(3);
         when(mockSeq.charAt(0)).thenReturn(' ');
         when(mockSeq.charAt(1)).thenReturn(' ');
@@ -39,7 +21,6 @@ public class StringUtilsValidationTest {
 
         assertTrue(StringUtils.isBlank(mockSeq));
         
-        // Verificamos que StringUtils realmente leyó los caracteres
         verify(mockSeq, atLeastOnce()).charAt(anyInt());
         System.out.println("ÉXITO: El método isBlank() fue testeado con Mockito correctamente.");
     }
@@ -49,17 +30,15 @@ public class StringUtilsValidationTest {
     // ====================================================================
     @Test
     public void testIsEmpty_WithMock() {
-        // Escenario 1: Simulamos una secuencia vacía (longitud 0)
+        CharSequence mockSeq = mock(CharSequence.class);
+
         when(mockSeq.length()).thenReturn(0);
         assertTrue(StringUtils.isEmpty(mockSeq), "Debería devolver true si la longitud es 0");
 
-        // Escenario 2: Simulamos una secuencia con contenido (longitud > 0)
         when(mockSeq.length()).thenReturn(5);
         assertFalse(StringUtils.isEmpty(mockSeq), "Debería devolver false si la longitud es mayor a 0");
 
-        // Verificamos que StringUtils consultó el tamaño (length) exactamente 2 veces
         verify(mockSeq, times(2)).length();
-        
         System.out.println("ÉXITO: El método isEmpty() fue testeado con Mockito simulando diferentes longitudes.");
     }
 
@@ -68,6 +47,8 @@ public class StringUtilsValidationTest {
     // ====================================================================
     @Test
     public void testContains_WithMock() {
+        CharSequence mockSeq = mock(CharSequence.class);
+
         when(mockSeq.toString()).thenReturn("pizarrón");
         
         assertTrue(StringUtils.contains(mockSeq, "piza"));
@@ -80,7 +61,8 @@ public class StringUtilsValidationTest {
     // ====================================================================
     @Test
     public void testIndexOf_BehaviorOnException() {
-        // Simulamos un comportamiento anómalo: el mock lanza error al intentar leer
+        CharSequence mockSeq = mock(CharSequence.class);
+
         when(mockSeq.length()).thenReturn(5);
         when(mockSeq.charAt(anyInt())).thenThrow(new IndexOutOfBoundsException("Error simulado"));
 
@@ -96,9 +78,10 @@ public class StringUtilsValidationTest {
     // ====================================================================
     @Test
     public void testContainsAny_Interaction() {
+        CharSequence mockSeq = mock(CharSequence.class);
+
         when(mockSeq.length()).thenReturn(2);
         when(mockSeq.charAt(0)).thenReturn('a');
-        // El método debería detenerse en 'a' y no llegar al segundo carácter
         
         boolean result = StringUtils.containsAny(mockSeq, 'a', 'b');
         
@@ -112,6 +95,8 @@ public class StringUtilsValidationTest {
     // ====================================================================
     @Test
     public void testContainsNone_FullScan() {
+        CharSequence mockSeq = mock(CharSequence.class);
+
         when(mockSeq.length()).thenReturn(3);
         when(mockSeq.charAt(0)).thenReturn('x');
         when(mockSeq.charAt(1)).thenReturn('y');
@@ -120,7 +105,6 @@ public class StringUtilsValidationTest {
         boolean result = StringUtils.containsNone(mockSeq, 'a', 'b');
 
         assertTrue(result);
-        // Verificamos que revisó toda la cadena (los 3 caracteres)
         verify(mockSeq, times(3)).charAt(anyInt());
         System.out.println("ÉXITO: El método containsNone() verificó correctamente todos los caracteres.");
     }
